@@ -7,6 +7,7 @@ using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using MiddlewareDemo.Extensions;
 
 namespace MiddlewareDemo
 {
@@ -49,6 +50,12 @@ namespace MiddlewareDemo
             app.UseIISPlatformHandler();
 
             app.UseStaticFiles();
+
+            app.UseAuthorizationMiddleware();
+
+            app.UseRequestHeaderMiddleware();
+
+            app.UseProcessingTimeMiddleware();
 
             app.UseMvc(routes =>
             {
