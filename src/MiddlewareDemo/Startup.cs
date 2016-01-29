@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MiddlewareDemo.Extensions;
+using MiddlewareDemo.Middleware;
 
 namespace MiddlewareDemo
 {
@@ -47,6 +48,8 @@ namespace MiddlewareDemo
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseMiddleware<AuthorizationMiddleware>();
+
             app.UseIISPlatformHandler();
 
             app.UseStaticFiles();
@@ -56,6 +59,8 @@ namespace MiddlewareDemo
             app.UseRequestHeaderMiddleware();
 
             app.UseProcessingTimeMiddleware();
+
+            app.UseAvoidDougMiddleware();
 
             app.UseMvc(routes =>
             {

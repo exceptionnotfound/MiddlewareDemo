@@ -23,5 +23,10 @@ namespace MiddlewareDemo.Extensions
         {
             return builder.UseMiddleware<ProcessingTimeMiddleware>();
         }
+
+        public static IApplicationBuilder UseAvoidDougMiddleware(this IApplicationBuilder builder)
+        {
+            return builder.UseMiddleware<AvoidDougMiddleware>();
+        }
     }
 }

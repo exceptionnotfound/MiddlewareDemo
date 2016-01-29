@@ -27,6 +27,7 @@ namespace MiddlewareDemo.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult TestMiddleware()
         {
             return Ok();
