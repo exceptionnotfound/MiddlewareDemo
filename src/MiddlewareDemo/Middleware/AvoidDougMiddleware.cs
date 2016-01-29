@@ -22,7 +22,7 @@ namespace MiddlewareDemo.Middleware
 
             if (context.Request.Headers.Contains(new KeyValuePair<string, Microsoft.Extensions.Primitives.StringValues>("X-Asker", "Doug")))
             {
-                context.Response.Headers.Add("X-Question-Response", "Go ask Mary!");
+                context.Response.Headers.Add("X-Question-Response", "I'm busy, dammit, go ask Mary!");
                 return;
             }
         }
